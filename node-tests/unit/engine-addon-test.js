@@ -2,6 +2,7 @@
 
 const EngineAddon = require('../../lib/engine-addon');
 const expect = require('chai').expect;
+const dummyManifest = { vendorFiles: ['one.js', 'two.js'] };
 
 describe('engine-addon', function() {
   describe('updateFastBootManifest', function() {
@@ -12,7 +13,7 @@ describe('engine-addon', function() {
         lazyLoading: { enabled: true }
       });
 
-      const manifest = { vendorFiles: ['one.js', 'two.js'] };
+      const manifest = dummyManifest;
       addon.updateFastBootManifest(manifest);
 
       expect(manifest).to.deep.equal({
@@ -33,7 +34,7 @@ describe('engine-addon', function() {
         lazyLoading: { enabled: false }
       });
 
-      const manifest = { vendorFiles: ['one.js', 'two.js'] };
+      const manifest = dummyManifest;
       addon.updateFastBootManifest(manifest);
 
       expect(manifest).to.deep.equal({
